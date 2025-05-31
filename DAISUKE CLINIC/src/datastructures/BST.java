@@ -110,8 +110,7 @@ public class BST {
 
     public void preOrderRec(Node root) {
         if (root != null) {
-            System.out.print(root.data + ", ");
-
+            System.out.println(root.data);
             preOrderRec(root.left);
             preOrderRec(root.right);
         }
@@ -126,7 +125,7 @@ public class BST {
     public void inOrderRec(Node root) {
         if (root != null) {
             inOrderRec(root.left);
-            System.out.print(root.data + ", ");
+            System.out.println(root.data);
             inOrderRec(root.right);
         }
     }
@@ -143,33 +142,5 @@ public class BST {
             postOrderRec(root.right);
             System.out.println(root.data);
         }
-    }
-
-    // Prints all Patients in level-order
-    public void levelOrder() {
-        int height = height(this.root);
-        for (int i = 1; i <= height; i++) {
-            levelOrderRec(this.root, i);
-        }
-        System.out.println();
-    }
-
-    public void levelOrderRec(Node root, int level) {
-        if (root != null) {
-            if (level == 1) {
-                System.out.print(root.data + ", ");
-            } else {
-                levelOrderRec(root.left, level - 1);
-                levelOrderRec(root.right, level - 1);
-            }
-        }
-    }
-
-    public int height(Node root) {
-        if (root == null) return 0;
-        int leftHeight = height(root.left);
-        int rightHeight = height(root.right);
-
-        return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
     }
 }
